@@ -1,0 +1,14 @@
+@startuml
+actor User
+package System{
+User - (Inicio Partida)
+User - (Atacar)
+(User) -- (Usar Habilidad Acorazado)
+(User) -- (Usar Habilidad Portaaviones)
+(User) -- (Usar Habilidad Submarino)
+(User) -- (Usar Habilidad Patrullero)
+(Atacar) --|> (Elegir casilla)
+(Usar Habilidad Portaaviones) --|> (Elegir casilla)
+(Usar Habilidad Acorazado) --|> (Elegir casilla)
+}
+@enduml

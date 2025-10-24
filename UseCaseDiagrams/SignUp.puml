@@ -1,0 +1,9 @@
+@startuml
+actor User
+actor LDAP
+package System{
+User - (Sign up)
+(Sign up) -> (verificar usuario) : <<include>>
+(verificar usuario) <- LDAP
+}
+@enduml

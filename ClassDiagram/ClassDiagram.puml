@@ -1,0 +1,128 @@
+@startuml
+'https://plantuml.com/class-diagram
+note "Se asume que todas las clases tienen sus constructores y destructores, así como getters y setters para todos sus atributos" as N1
+
+class Tablero {
+-barcosRestantes
++colocarBarcos()
+}
+
+class Casilla {
+-ejeX
+-ejeY
+-Estado
+}
+
+abstract class Barco{
+-id
+-usosHabilidadRestantes
++usarHabilidad()
+}
+
+class Partida{
+-estado
++CalcularPuntuación()
+}
+
+abstract class Jugador{
+-tablero
++Atacar()
++SeleccionarHabilidad()
+}
+
+class Usuario{
+}
+
+abstract class Turno{
+-numero
+}
+
+class Ataque{
+
+-impacto
+}
+
+class BaseDeDatos{
++subirRegistro()
+}
+
+abstract class CPU {
+-nombre
+-Dificultad
+}
+
+class SistemaAutenticacion{
++verificarCredenciales()
++registarUsuario()
++esCorreoValido()
++estaEnListaNegra()
+}
+class Session{
+-id
+-activa
++iniciar()
++terminar()
+}
+enum Dificultad{
++Facil
++Normal
++Dificil
+}
+enum Estado{
++Impactado
++Sin Impactar
+}
+class HabilidadAcorazado {
+-impacto
+}
+class HabilidadPortaAviones{
+-impacto
+}
+class Perfil {
+-nombre
+-contraseña
+-puntuacion
++VerMejoresPuntuaciones()
+}
+class Administrador {
++VerTodasPuntiaciones()
+}
+
+
+Jugador <|-- Perfil :{Total,Disjunta}
+Jugador <|-- CPU :{Total,Disjunta}
+Turno <|-- Ataque:{Total,Disjunta}
+Barco <|-- PortaAviones:{Total,Disjunta}
+Barco <|-- Acorazado:{Total,Disjunta}
+Barco <|-- Submarino:{Total,Disjunta}
+Barco <|-- Patrullero:{Total,Disjunta}
+Tablero "1" *-- "100" Casilla : Esta compuesto por
+Barco "0..1" o-- " 0..*" Casilla : Ocupa
+Barco "0..1" o-- " 0..*" Casilla : Es activo en
+Jugador "1" *-- "1"Tablero : Juega en
+Partida "1" o-- "2" Jugador : Contiene
+Partida "1" o-- "0..*" Turno : Ocurre en
+Partida "0..*" -- "1" BaseDeDatos : Utiliza
+Turno <|-- HabilidadPortaAviones:{Total,Disjunta}
+Turno <|-- HabilidadAcorazado:{Total,Disjunta}
+Turno <|-- HabilidadSubmarino:{Total,Disjunta}
+Turno <|-- HabilidadPatrullero:{Total,Disjunta}
+Turno "1" *-- "1" Jugador : Realiza
+Usuario "0..*" -- "1" SistemaAutenticacion : Se verifica mediante
+SistemaAutenticacion -- Session : Genera
+Session "1" *-- "0..1" Usuario : Contiene
+Ataque "0..*" *-- "1" Casilla : Atacan
+HabilidadPortaAviones "0..*" o-- "1" Casilla : Contraataca
+HabilidadAcorazado "0..*" o-- "1..*" Casilla : Ataca con artillería
+HabilidadSubmarino "0..1" o-- "1..*" Casilla : Repara
+HabilidadPatrullero "0..1" o-- "*" Casilla : Revela
+Perfil <|-- Usuario:{Total,Disjunta}
+Perfil <|-- Administrador:{Total,Disjunta}
+Perfil "0..*" -- "1" BaseDeDatos:Lee las mejores partidas
+Administrador "0..*" -- "1" BaseDeDatos:Lee todas las partidas
+
+
+
+
+
+@enduml

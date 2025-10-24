@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>es.upm.etsisi.poo</groupId>
+  <artifactId>Battleship_IWSIM21-12</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Archetype - Battleship_IWSIM21-12</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.9.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.17.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.34</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.15.2</version>
+    </dependency>
+    <dependency>
+      <groupId>etsisi</groupId>
+      <artifactId>Battleship</artifactId>
+      <version>1.11</version>
+    </dependency>
+    <dependency>
+      <groupId>etsisi</groupId>
+      <artifactId>externals</artifactId>
+      <version>5.1</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <!--  Asegúrate de usar una versión compatible  -->
+        <configuration>
+          <source>17</source>
+          <!--  Versión del lenguaje fuente  -->
+          <target>17</target>
+          <!--  Versión del bytecode generado  -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <repositories>
+    <repository>
+      <id>local-repo</id>
+      <url>file://${project.basedir}\libs</url>
+    </repository>
+  </repositories>
+</project>

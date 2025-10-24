@@ -1,0 +1,6 @@
+@startuml
+Actor User
+package System{
+User - (Mostrar puntuación)
+}
+@enduml
