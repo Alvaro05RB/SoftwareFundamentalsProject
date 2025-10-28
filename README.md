@@ -37,7 +37,6 @@ This was a group project; my main contributions included:
 | Maven | 3.8+ | Build and dependency management |
 | Battleship | 1.11 | Provided game library |
 | Externals | 5.1 | Provided auxiliary library |
-| Jackson Databind | 2.15.2 | JSON serialization/deserialization |
 | JUnit | 3.8.1 | Unit testing framework |
 
 ## Setup and Execution
